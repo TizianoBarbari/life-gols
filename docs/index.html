@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game of Life</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Game of Life (playground)</h1>
+    <div class="meta">
+      <label for="gridSize">Grid size: <span id="gridSizeDisplay"> </span></label>
+      <input id="gridSize" type="range" min="10" max="100" value="50" disabled>
+
+      <label for="engine">Engine:</label>
+      <select id="engine">
+        <option value="js">JavaScript (builtin)</option>
+      </select>
+
+      <label for="rule">Rule (B/S):</label>
+      <input id="rule" value="B3/S23" title="Birth/Survive format">
+
+      <button id="play">Play</button>
+      <button id="step">Step</button>
+
+      <!-- Random + density control -->
+      <button id="random">Random</button>
+      <label for="randomDensity" class="small">Density:
+        <input id="randomDensity" type="range" min="0" max="1" step="0.01" value="0.25">
+        <span id="randomDensityDisplay">0.25</span>
+      </label>
+
+      <button id="clear">Clear</button>
+
+      <label>Speed:
+        <input id="speed" type="range" min="1" max="60" value="15">
+      </label>
+
+      <span class="status">Generation: <strong id="generation">0</strong></span>
+      <span class="status">Alive: <strong id="alive">0</strong></span>
+    </div>
+  </header>
+
+  <main>
+    <canvas id="board" width="900" height="500"></canvas>
+    <aside id="presets">
+      <h3>Preset patterns</h3>
+      <button data-pattern="glider">Glider</button>
+      <button data-pattern="small-exploder">Small Exploder</button>
+      <button data-pattern="pulsar">Pulsar</button>
+      <div>--- (more to come) ---</div>
+    </aside>
+  </main>
+
+ <!--
+  <footer>
+    <small>Engine API: <code>new GameOfLife(rows,cols)</code>, methods: <code>step()</code>, <code>randomize()</code>, <code>toggleCell(r,c)</code>, <code>getGrid()</code>, <code>setGrid(g)</code>, <code>resize(r,c)</code>.</small>
+  </footer>
+ --> 
+
+  <script type="module" src="frontend/main.js"></script>
+</body>
+</html>
